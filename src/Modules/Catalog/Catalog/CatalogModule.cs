@@ -1,8 +1,11 @@
-﻿using Catalog.Data.Seed;
+﻿using System.Reflection;
+using Catalog.Data.Seed;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Data;
+using Shared.Data.Interceptors;
 using Shared.Data.Seed;
 
 namespace Catalog;
@@ -11,10 +14,17 @@ public static class CatalogModule
 {
     public static IServiceCollection ConfigureCatalogModule(this IServiceCollection services,IConfiguration configuration)
     {
+        // DI 
+        services.AddMediatR(config => 
+            config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        // interceptors 
+        services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>()
+               .AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
         #region DB connection
         var connectionString = configuration.GetConnectionString("DbConnection");
-        services.AddDbContext<CatalogDbContext>(opt =>
+        services.AddDbContext<CatalogDbContext>((sp ,opt) =>
         {
+            opt.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
             opt.UseNpgsql(connectionString);
         });
         #endregion
