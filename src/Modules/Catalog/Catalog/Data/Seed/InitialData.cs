@@ -2,11 +2,12 @@ using Catalog.Products.Models;
 
 namespace Catalog.Data.Seed;
 
-public class InitialData
+public static class InitialData
 {
     public static IEnumerable<Product> Products  => new List<Product>
     {
         Product.Create(
+            Guid.NewGuid(),
             name: "Wireless Mouse",
             price: 25.99m,
             description: "Ergonomic wireless mouse with adjustable DPI.",
@@ -14,6 +15,7 @@ public class InitialData
             category: ["Electronics", "Accessories"]
         ),
         Product.Create(
+            Guid.NewGuid(),
             name: "Gaming Keyboard",
             price: 89.99m,
             description: "Mechanical gaming keyboard with RGB lighting.",
@@ -21,6 +23,7 @@ public class InitialData
             category: ["Electronics", "Gaming"]
         ),
         Product.Create(
+            Guid.NewGuid(),
             name: "Bluetooth Headphones",
             price: 119.99m,
             description: "Noise-cancelling over-ear headphones with Bluetooth 5.0.",
@@ -28,6 +31,7 @@ public class InitialData
             category: new List<string> { "Electronics", "Audio" }
         ),
         Product.Create(
+            Guid.NewGuid(),
             name: "Smartphone Stand",
             price: 15.49m,
             description: "Adjustable smartphone stand for desks and tables.",
@@ -35,6 +39,7 @@ public class InitialData
             category: ["Accessories", "Office"]
         ),
         Product.Create(
+            Guid.NewGuid(),
             name: "Portable Charger",
             price: 39.99m,
             description: "20,000mAh power bank with fast charging support.",

@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Shared;
+namespace Shared.DDD;
 
 public interface IDomainEvent :INotification
 {

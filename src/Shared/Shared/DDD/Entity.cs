@@ -1,4 +1,4 @@
-namespace Shared;
+namespace Shared.DDD;
 
 public class Entity<T> :IEntity<T>
 {

@@ -1,5 +1,6 @@
 using Catalog.Products.Models;
 using Shared;
+using Shared.DDD;
 
 namespace Catalog.Events;
 

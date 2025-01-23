@@ -1,3 +1,7 @@
 global using Microsoft.EntityFrameworkCore;
 global using Shared.Constants;
 global using Catalog.Data;
+global using Shared.CQRS;
+global using Catalog.Dtos;
+global using Catalog.Products.Models;
+global using Mapster;
