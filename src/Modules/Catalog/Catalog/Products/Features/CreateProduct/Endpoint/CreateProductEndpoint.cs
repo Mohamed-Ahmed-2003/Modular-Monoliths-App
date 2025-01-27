@@ -1,9 +1,11 @@
-namespace Catalog.Products.Features.CreateProduct;
+using Catalog.Products.Features.Handler.CreateProduct;
+
+namespace Catalog.Products.Features.CreateProduct.Endpoint;
 
 // Request 
-public record CreateProductRequest(ProductDto Product);
+public abstract record CreateProductRequest(ProductDto Product);
 // Response
-public record CreateProductResponse(Guid Id);
+public abstract record CreateProductResponse(Guid Id);
 
 public class CreateProductEndpoint : ICarterModule
 {
