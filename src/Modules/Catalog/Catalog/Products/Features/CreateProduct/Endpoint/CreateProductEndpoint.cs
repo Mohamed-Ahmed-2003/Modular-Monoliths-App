@@ -3,9 +3,9 @@ using Catalog.Products.Features.Handler.CreateProduct;
 namespace Catalog.Products.Features.CreateProduct.Endpoint;
 
 // Request 
-public abstract record CreateProductRequest(ProductDto Product);
+public  record CreateProductRequest(ProductDto Product);
 // Response
-public abstract record CreateProductResponse(Guid Id);
+public  record CreateProductResponse(Guid Id);
 
 public class CreateProductEndpoint : ICarterModule
 {

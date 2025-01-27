@@ -5,6 +5,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{D084275A-8DE6-45A1-9A2F-0F71FC5868CF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{2DFB6AE5-DBD1-4AEF-AC36-E83928B90A4E}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Exceptions\Handler\CustomExceptionHandler.cs = Shared\Exceptions\Handler\CustomExceptionHandler.cs
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "Bootstrapper\API\API.csproj", "{1F9356E0-23F8-4CAB-B1E6-102C91A8861E}"
 EndProject

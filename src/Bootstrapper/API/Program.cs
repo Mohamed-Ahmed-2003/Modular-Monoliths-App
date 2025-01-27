@@ -1,6 +1,7 @@
 using Carter;
 using Catalog.Products.Features.CreateProduct;
 using FluentValidation.AspNetCore;
+using Shared.Exceptions.Handler;
 using Shared.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,9 +16,14 @@ builder.Services
 
 #endregion
 
+builder.Services
+    .AddExceptionHandler<CustomExceptionHandler>();
+
 var app = builder.Build();
 
 app.MapCarter();
+app.UseExceptionHandler(options => { });
+
 app.UseCatalogModule()
     .UseOrderingModule()
     .UseCartModule();
