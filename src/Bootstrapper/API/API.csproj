@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Modules\Cart\Cart\Cart.csproj" />
+      <ProjectReference Include="..\..\Modules\Cart\Cart\BasketCart.csproj" />
       <ProjectReference Include="..\..\Modules\Catalog\Catalog\Catalog.csproj" />
       <ProjectReference Include="..\..\Modules\Ordering\Ordering\Ordering.csproj" />
     </ItemGroup>

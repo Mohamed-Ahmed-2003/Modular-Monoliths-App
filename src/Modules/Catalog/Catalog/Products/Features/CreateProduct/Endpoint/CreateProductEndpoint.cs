@@ -3,7 +3,7 @@ using Catalog.Products.Features.Handler.CreateProduct;
 namespace Catalog.Products.Features.CreateProduct.Endpoint;
 
 // Request 
-public  record CreateProductRequest(ProductDto Product);
+// public  record CreateProductRequest(ProductDto Product);
 // Response
 public  record CreateProductResponse(Guid Id);
 
@@ -17,11 +17,11 @@ public class CreateProductEndpoint : ICarterModule
             .Produces(StatusCodes.Status400BadRequest);
     }
 
-    private async Task<IResult> HandleCreateProduct(CreateProductRequest request, ISender mediator)
+    private async Task<IResult> HandleCreateProduct(CreateProductCommand request, ISender mediator)
     {
-        var command = request.Adapt<CreateProductCommand>();
+        // var command = request.Adapt<CreateProductCommand>();
 
-        var result = await mediator.Send(command);
+        var result = await mediator.Send(request);
         var response = result.Adapt<CreateProductResponse>();
 
         return Results.Created($"/products/{response.Id}", response);
